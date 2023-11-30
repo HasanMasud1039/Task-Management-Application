@@ -12,7 +12,7 @@ const Navbar = () => {
 
     useEffect(() => {
         if (userEmail) {
-            axiosSecure.get(`http://localhost:5000/users/${userEmail}`)
+            axiosSecure.get(`https://task-management-server-blond.vercel.app/users/${userEmail}`)
                 .then((response) => {
                     setUser(response.data);
                 })

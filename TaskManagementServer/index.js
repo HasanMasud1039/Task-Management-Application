@@ -12,6 +12,12 @@ const port = process.env.PORT || 5000;
 app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
+// app.use((req, res, next) => {
+//     res.header('Access-Control-Allow-Origin', 'http://localhost:5175');
+//     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+//     res.header('Access-Control-Allow-Headers', 'Content-Type');
+//     next();
+//   });
 
 
 //mongodb connection
@@ -55,10 +61,10 @@ async function run() {
 
         //add DB
         const usersCollection = client
-            .db("TaskManagementDB")
+            .db("Task-Management-India")
             .collection("Users");
         const tasksCollection = client
-            .db("TaskManagementDB")
+            .db("Task-Management-India")
             .collection("Tasks");
 
         //JWT Authentication

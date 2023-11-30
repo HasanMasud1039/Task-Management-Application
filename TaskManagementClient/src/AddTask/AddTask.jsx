@@ -22,7 +22,7 @@ const AddTask = () => {
 
             //POST Data
             try {
-                const response = await axios.post('http://localhost:5000/tasks', task);
+                const response = await axios.post('https://task-management-server-blond.vercel.app/tasks', task);
                 console.log('Data sent successfully:', response.data);
             } catch (error) {
                 console.error('Error sending data:', error);

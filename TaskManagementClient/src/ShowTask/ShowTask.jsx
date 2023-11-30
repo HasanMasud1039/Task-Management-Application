@@ -32,7 +32,7 @@ const ShowTask = () => {
     //search in table
     const search = () => {
         fetch(
-            `http://tlocalhost:5000/getSearchByTaskName/${searchText}`
+            `https://task-management-server-blond.vercel.app/getSearchByTaskName/${searchText}`
         )
             .then((res) => res.json())
             .then((data) => {
@@ -69,7 +69,7 @@ const ShowTask = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/tasks/${id}`, {
+                fetch(`https://task-management-server-blond.vercel.app/tasks/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -149,7 +149,7 @@ const ShowTask = () => {
             name: 'Description',
             selector: row => row.description,
             sortable: false,
-            width: '60%',
+            width: '58%',
         },
         {
             cell: (row) => (
@@ -233,7 +233,7 @@ const ShowTask = () => {
                 </div>
             ),
             name: 'Action',
-            width: '10%'
+            width: '12%'
         },
     ];
     const customStyles = {
@@ -296,8 +296,8 @@ const ShowTask = () => {
 
 
     return (
-        <div>
-            <div className=" w-[80%] mx-auto ">
+        <div className='h-full md:mx-auto'>
+            <div className=" w-[90%] mx-auto ">
                 <h1 className='py-4 text-3xl text-center font-serif font-bold'>Task List</h1>
                 <div className='bg-red-300 relative mb-24 '>
                     <form onChange={handleSearchSubmit} className=" absolute top-0 right-0 bg-zinc-200 border-0">

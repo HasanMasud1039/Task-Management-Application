@@ -12,9 +12,9 @@ const Registration = () => {
 
     const onSubmit = (userData) => {
         if (userData) {
-
+console.log(userData);
             // send data to DB
-            fetch(`http://localhost:5000/users`, {
+            fetch(`https://task-management-server-blond.vercel.app/users`, {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -38,7 +38,6 @@ const Registration = () => {
                     }
                 })
         }
-
     };
 
     return (
@@ -47,7 +46,7 @@ const Registration = () => {
 
             <form className='max-w-[600px] mx-auto p-20 border border-gray-300 rounded-lg shadow-md bg-gray-200' onSubmit={handleSubmit(onSubmit)}>
                 <div>
-                    <label htmlFor="name" className="block font-bold mb-2">Name</label>
+                    <label htmlFor="name" className="block font-bold mb-2">Name <span className='text-lg text-red-600'>*</span></label>
                     <Controller
                         name="name"
                         control={control}
@@ -60,7 +59,7 @@ const Registration = () => {
                 </div>
 
                 <div>
-                    <label htmlFor="email" className="block font-bold mb-2">Email</label>
+                    <label htmlFor="email" className="block font-bold mb-2">Email <span className='text-lg text-red-600'>*</span></label>
                     <Controller
                         name="email"
                         control={control}
@@ -77,7 +76,7 @@ const Registration = () => {
                 </div>
 
                 <div>
-                    <label htmlFor="password" className="block font-bold mb-2">Password</label>
+                    <label htmlFor="password" className="block font-bold mb-2">Password <span className='text-lg text-red-600'>*</span></label>
                     <Controller
                         name="password"
                         control={control}
@@ -91,7 +90,7 @@ const Registration = () => {
                 </div>
 
                 <div>
-                    <label htmlFor="photoURL" className="block font-bold mb-2">Photo URL (Optional)</label>
+                    <label htmlFor="photoURL" className="block font-bold mb-2">Photo URL</label>
                     <Controller
                         name="photoURL"
                         control={control}
